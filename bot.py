@@ -45,11 +45,14 @@ embedder = SentenceTransformer("all-MiniLM-L6-v2")
 
 # 3. Load Llama (via Hugging Face) for free-form generation
 
-MODEL_NAME = "mistralai/Mistral-7B-Instruct-v0.1"
+# 3. Load a public, un-gated model for free-form generation
+MODEL_NAME = "distilgpt2"
+from transformers import AutoTokenizer, AutoModelForCausalLM
+
 tokenizer = AutoTokenizer.from_pretrained(MODEL_NAME)
 model     = AutoModelForCausalLM.from_pretrained(
     MODEL_NAME,
-    torch_dtype=torch.float16,
+    torch_dtype=torch.float32,  # GPT-2 is small, float32 is fine
     device_map="auto"
 )
 
