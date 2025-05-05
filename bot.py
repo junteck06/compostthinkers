@@ -46,7 +46,7 @@ embedder = SentenceTransformer("all-MiniLM-L6-v2")
 # 3. Load Llama (via Hugging Face) for free-form generation
 tokenizer = AutoTokenizer.from_pretrained("meta-llama/Llama-3-2b")
 model = AutoModelForCausalLM.from_pretrained(
-    "meta-llama/Llama-3-2b",
+    "meta-llama/Llama-2-7b-chat-hf",
     torch_dtype=torch.float16,
     device_map="auto"
 )
