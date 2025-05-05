@@ -44,12 +44,16 @@ with open("faiss_index.pkl", "rb") as f:
 embedder = SentenceTransformer("all-MiniLM-L6-v2")
 
 # 3. Load Llama (via Hugging Face) for free-form generation
-tokenizer = AutoTokenizer.from_pretrained("meta-llama/Llama-3-2b")
-model = AutoModelForCausalLM.from_pretrained(
-    "meta-llama/Llama-2-7b-chat-hf",
+
+MODEL_NAME = "mistralai/Mistral-7B-Instruct-v0.1"
+tokenizer = AutoTokenizer.from_pretrained(MODEL_NAME)
+model     = AutoModelForCausalLM.from_pretrained(
+    MODEL_NAME,
     torch_dtype=torch.float16,
     device_map="auto"
 )
+
+
 
 # 4. Handlers
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
