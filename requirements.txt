@@ -1,17 +1,5 @@
-# Telegram & environment
 python-telegram-bot
-python-dotenv
-
-# Web server
 Flask
-
-# Data & plotting
-pandas
-matplotlib
-
-# AI & RAG
-openai
-faiss-cpu
+python-dotenv
+faiss-cpu          # only if you really need FAISS
 sentence-transformers
-transformers
-torch
